@@ -726,18 +726,50 @@ const dishes = [
   {img:'assets/estrogonofe.jpg', tag:'Linha dia a dia', name:'Estrogonofe de frango, arroz e batata assada 370g', kcal:'459 kcal', prot:'32g prot.', old:'R$ 29,90', price:'R$ 24,90', url:'https://www.livup.com.br/estrogonofe-de-frango-arroz-e-batata-assada-370g-V168/p'},
 ];
 const track = document.getElementById('catalogTrack');
-dishes.forEach((d)=>{
+function buildDishCard(d, hidden){
   const card = document.createElement('div');
   card.className = 'dish';
+  if(hidden) card.setAttribute('aria-hidden', 'true');
   card.innerHTML = `
     <div class="dish-photo"><img src="${d.img}" alt="${d.name}" loading="lazy"></div>
     <div class="dish-body">
       <span class="dish-tag">${d.tag}</span>
-      <a class="dish-name" href="${d.url}" target="_blank" rel="noopener">${d.name}</a>
+      <a class="dish-name" href="${d.url}" target="_blank" rel="noopener" ${hidden ? 'tabindex="-1"' : ''}>${d.name}</a>
       <span class="dish-meta"><span>${d.kcal}</span><span>${d.prot}</span></span>
       <span class="dish-price"><span class="old">${d.old}</span><span class="new">${d.price}</span></span>
     </div>`;
-  track.appendChild(card);
+  return card;
+}
+// Carrossel infinito: um clone do set inteiro antes e depois do set real,
+// com salto instantâneo (sem transição) ao cruzar para a zona clonada.
+dishes.forEach(d => track.appendChild(buildDishCard(d, true)));  // clone antes (loop pra trás)
+const firstRealCard = buildDishCard(dishes[0], false);
+track.appendChild(firstRealCard);
+dishes.slice(1).forEach(d => track.appendChild(buildDishCard(d, false)));
+const firstCloneAfterCard = buildDishCard(dishes[0], true);
+track.appendChild(firstCloneAfterCard);
+dishes.slice(1).forEach(d => track.appendChild(buildDishCard(d, true)));  // clone depois (loop pra frente)
+
+let setWidth = 0;
+requestAnimationFrame(() => {
+  setWidth = firstCloneAfterCard.offsetLeft - firstRealCard.offsetLeft;
+  track.scrollTo({left: firstRealCard.offsetLeft, behavior: 'instant'});
+});
+
+function jumpTrack(delta){
+  // scrollLeft = X pode animar/ignorar sob scroll-behavior:smooth; scrollTo({behavior:'instant'})
+  // é o jeito confiável de teleportar sem transição ao cruzar pra zona clonada.
+  track.style.scrollSnapType = 'none';
+  track.scrollTo({left: track.scrollLeft + delta, behavior: 'instant'});
+  requestAnimationFrame(() => { track.style.scrollSnapType = ''; });
+}
+track.addEventListener('scroll', () => {
+  if(!setWidth) return;
+  if(track.scrollLeft <= 2){
+    jumpTrack(setWidth);
+  } else if(track.scrollLeft >= track.scrollWidth - track.clientWidth - 2){
+    jumpTrack(-setWidth);
+  }
 });
 
 // testimonials — PLACEHOLDER LAYOUT ONLY. Not real customers/comments.
