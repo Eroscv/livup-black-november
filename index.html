@@ -104,12 +104,10 @@ a{color:inherit}
 .hero-content-wrapper{
   display:flex;
   justify-content:flex-start;
-  order:1;
   padding-block:56px;
   padding-left:max(16px, calc((100vw - 1240px) / 2 + 16px));
   padding-right:32px;
 }
-.hero-full-grid > .hero-visual{order:2;}
 .hero-content{
   max-width:580px;
   width:100%;
@@ -483,6 +481,25 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <!-- Hero com expansão para a borda direita e faixa interna cor cereja -->
   <section class="hero">
     <div class="hero-full-grid">
+      <div class="hero-content-wrapper">
+        <div class="hero-content">
+          <div class="kv-lettering">
+            <div class="kv-lettering-main">
+              <div class="kv-lettering-row">
+                <span class="kv-black">BLACK</span><span class="kv-november">NOVEMBER</span>
+              </div>
+              <div class="kv-sub">Um mês <b>inteiro</b> de <b>ofertas</b></div>
+            </div>
+            <img class="kv-logo-badge" src="assets/logo.jpg" alt="Liv Up">
+          </div>
+          <h1>Refeições saudáveis e gostosas com o <span class="hl">melhor preço</span> do ano</h1>
+          <p class="sub">Ofertas em todo site e app</p>
+          <p class="desc">Marmitas criadas por chefs e nutricionistas, feitas com ingredientes naturais e prontas em minutos.</p>
+          <div class="cta-block">
+            <a class="btn btn--cereja" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Quero aproveitar a Black</a>
+          </div>
+        </div>
+      </div>
       <div class="hero-visual">
         <video src="assets/hero-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
         <div class="tape top">SITE INTEIRO COM DESCONTO •</div>
@@ -503,25 +520,6 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
           <div class="hero-internal-item">
             <svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
             <span class="label">Prontas em minutos no micro-ondas</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-content-wrapper">
-        <div class="hero-content">
-          <div class="kv-lettering">
-            <div class="kv-lettering-main">
-              <div class="kv-lettering-row">
-                <span class="kv-black">BLACK</span><span class="kv-november">NOVEMBER</span>
-              </div>
-              <div class="kv-sub">Um mês <b>inteiro</b> de <b>ofertas</b></div>
-            </div>
-            <img class="kv-logo-badge" src="assets/logo.jpg" alt="Liv Up">
-          </div>
-          <h1>Refeições saudáveis e gostosas com o <span class="hl">melhor preço</span> do ano</h1>
-          <p class="sub">Ofertas em todo site e app</p>
-          <p class="desc">Marmitas criadas por chefs e nutricionistas, feitas com ingredientes naturais e prontas em minutos.</p>
-          <div class="cta-block">
-            <a class="btn btn--cereja" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Quero aproveitar a Black</a>
           </div>
         </div>
       </div>
