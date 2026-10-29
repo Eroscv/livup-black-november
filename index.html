@@ -147,24 +147,28 @@ a{color:inherit}
 .hero .cta-block{margin-top:24px;}
 
 .hero-visual{
-  position:relative; border-radius:18px; overflow:hidden; aspect-ratio:4/5;
-  background:var(--preto);
-  display:flex; align-items:flex-end; padding:22px; color:#fff;
+  position:relative; border-radius:24px; overflow:hidden; aspect-ratio:4/5;
+  background:var(--sand);
+  display:flex; align-items:flex-end; padding:0; color:var(--fg);
 }
 .hero-visual video{
   position:absolute; inset:0; width:100%; height:100%; object-fit:cover; z-index:0;
 }
-.hero-visual::after{
-  content:""; position:absolute; inset:0; z-index:1;
-  background:linear-gradient(0deg, rgba(10,10,10,.78), rgba(10,10,10,.08) 55%);
-}
-.hero-visual .tape, .hero-visual .cap{ position:relative; z-index:2; }
 .hero-visual .tape{
-  position:absolute; top:18%; left:-10%; width:130%; transform:rotate(-7deg);
-  background:var(--cereja); color:#fff; font:700 13px var(--font-bold); letter-spacing:.08em;
-  text-transform:uppercase; padding:7px 0; text-align:center; white-space:nowrap; overflow:hidden;
+  position:absolute; z-index:2; left:-10%; width:130%; transform:rotate(-6deg);
+  background:var(--preto); color:#fff; font:700 12px var(--font-bold); letter-spacing:.1em;
+  text-transform:uppercase; padding:6px 0; text-align:center; white-space:nowrap; overflow:hidden;
 }
-.hero-visual .cap{font:700 14px var(--font-body-sb); background:rgba(0,0,0,.35); padding:10px 12px; border-radius:10px; backdrop-filter:blur(2px);}
+.hero-visual .tape.top{top:10%;}
+.hero-visual .tape.bottom{bottom:16%; background:var(--cereja); transform:rotate(5deg);}
+.stat-badge{
+  position:absolute; z-index:3; background:#fff; color:var(--fg); border-radius:14px;
+  padding:10px 14px; box-shadow:0 8px 24px rgba(0,0,0,.14);
+  font:700 12.5px var(--font-body-sb); display:flex; align-items:center; gap:8px; white-space:nowrap;
+}
+.stat-badge b{font-family:var(--font-display); font-size:16px; color:var(--cereja);}
+.stat-badge.sb-1{top:8%; right:6%;}
+.stat-badge.sb-2{bottom:8%; left:6%;}
 
 .benefits{background:var(--cereja); color:#fff;}
 .benefits .wrap{display:grid; grid-template-columns:repeat(3,1fr); gap:18px; padding-block:22px;}
@@ -384,7 +388,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
 
 <div class="topbar">
   <span>🖤 BLACK NOVEMBER LIV UP · Um mês inteiro de ofertas</span>
-  <button class="pill-link" onclick="document.getElementById('cupons').scrollIntoView({behavior:'smooth'})">Ver meu cupom</button>
+  <button class="pill-link" onclick="document.getElementById('cupons').scrollIntoView({behavior:'smooth'})">Ver meus cupons</button>
 </div>
 
 <main>
@@ -401,23 +405,19 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
           </div>
           <img class="kv-logo-badge" src="assets/logo.jpg" alt="Liv Up">
         </div>
-        <h1>Seu freezer também merece uma <span class="hl">Black</span> 🖤</h1>
-        <p class="sub">Um mês inteiro de ofertas em todo site e app.</p>
-        <p class="desc">Marmitas criadas por chefs e nutricionistas, feitas com ingredientes naturais e prontas em minutos. Em novembro, todas com desconto e cashback.</p>
-        <div class="offer"><b>10% OFF</b> + 15% de cashback na 1ª compra · cupom <b>BLACKNOVEMBER</b></div>
+        <h1>Refeições saudáveis e gostosas com o <span class="hl">melhor preço</span> do ano</h1>
+        <p class="sub">Ofertas em todo site e app</p>
+        <p class="desc">Marmitas criadas por chefs e nutricionistas, feitas com ingredientes naturais e prontas em minutos.</p>
         <div class="cta-block">
-          <label for="cepInput" class="cep-label">Seu CEP</label>
-          <form class="cep" id="cepForm">
-            <input id="cepInput" inputmode="numeric" placeholder="Será que entrega? Digite seu CEP" maxlength="9">
-            <button type="submit">Quero aproveitar a Black</button>
-          </form>
-          <div class="cep-error" id="cepError" role="alert" aria-live="polite"></div>
+          <a class="btn btn--cereja" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Quero aproveitar a Black</a>
         </div>
       </div>
       <div class="hero-visual">
         <video src="assets/hero-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
-        <div class="tape">SITE INTEIRO COM DESCONTO • SITE INTEIRO COM DESCONTO •</div>
-        <div class="cap">Comer bem nunca foi tão fácil</div>
+        <div class="tape top">SITE INTEIRO COM DESCONTO •</div>
+        <div class="tape bottom">UM MÊS INTEIRO DE OFERTAS •</div>
+        <div class="stat-badge sb-1"><b>+90</b> receitas no cardápio</div>
+        <div class="stat-badge sb-2"><b>2 min</b> no micro-ondas</div>
       </div>
     </div>
   </section>
@@ -436,8 +436,9 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         <span class="eyebrow">Kits em Black</span>
         <h2 style="font-size:30px; margin-top:8px;">Os kits entraram na Black</h2>
         <p class="lede" style="margin-top:10px;">Kits de 14 e 20 refeições com o cupom e o cashback da Black.</p>
+        <p style="margin-top:10px; font:700 11px var(--font-body-sb); letter-spacing:.04em; text-transform:uppercase; color:var(--fg-soft);">1ª compra + cupom BLACKNOVEMBER · ou já cliente + cupom BLACKMONTH — combinação com oferta de 1ª compra do site a confirmar com a Liv Up</p>
       </div>
-      <p class="freeship-note">Frete grátis acima de R$ 290</p>
+      <p class="freeship-note">Frete grátis acima de R$ 290 [a confirmar]</p>
       <div class="kits-grid" id="kitsGrid"></div>
       <div class="center" style="margin-top:28px;">
         <a class="btn btn--outline" href="https://www.livup.com.br/kits" target="_blank" rel="noopener">Ver todos os kits</a>
@@ -449,8 +450,8 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <section class="section section--lg section--sand" id="cupons">
     <div class="wrap">
       <div class="center" style="margin-bottom:28px;">
-        <span class="eyebrow">Fuja da fila</span>
-        <h2 style="font-size:30px; margin-top:8px;">Fuja da fila e encha o freezer 🔥</h2>
+        <span class="eyebrow">Aproveite as ofertas</span>
+        <h2 style="font-size:30px; margin-top:8px;">Cupons válidos por todo novembro</h2>
         <p class="lede" style="margin-top:10px;">Escolha o seu cupom e aproveite o mês inteiro.</p>
       </div>
       <div class="offer-cards">
@@ -480,7 +481,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         </div>
       </div>
       <div class="center" style="margin-top:28px;">
-        <a class="btn btn--cereja" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Usar meu cupom agora</a>
+        <a class="btn btn--cereja" href="#cupons">Usar meu cupom agora</a>
       </div>
     </div>
   </section>
@@ -493,14 +494,12 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         <video src="assets/processo-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       </div>
       <div>
-        <span class="eyebrow">Processo</span>
+        <span class="eyebrow">+90 receitas no cardápio</span>
         <h2 style="margin-top:8px;">Receitas com processos de chef</h2>
         <p style="color:var(--fg-soft); margin-top:8px;">Cada etapa pensada pra marmita chegar com cara de prato feito na hora.</p>
         <div class="icon-row icon-row--split">
-          <div><h3>Proteínas bem seladas</h3></div>
-          <div><h3>Molhos ricos em sabor</h3></div>
-          <div><h3>Ingredientes selecionados</h3></div>
-          <div><h3>Finalizadas no detalhe</h3></div>
+          <div><h3>Ingredientes de alta qualidade</h3></div>
+          <div><h3>Aprovadas por nutricionistas</h3></div>
         </div>
         <a class="btn btn--outline" style="margin-top:20px;" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Quero provar na Black</a>
       </div>
@@ -514,13 +513,13 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         <video src="assets/monte-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       </div>
       <div>
-        <span class="eyebrow">Sem assinatura</span>
-        <h2 style="margin-top:8px;">Monte do seu jeito</h2>
-        <p style="color:var(--fg-soft); margin-top:8px;">Kit pronto ou marmita avulsa, quem escolhe é você.</p>
+        <span class="eyebrow">Praticidade para sua saúde</span>
+        <h2 style="margin-top:8px;">Entrega agendada na sua casa</h2>
+        <p style="color:var(--fg-soft); margin-top:8px;">As refeições são entregues em dias e horários agendados por você.</p>
         <ul>
           <li>Kits de 14 e 20 refeições</li>
-          <li>Marmitas avulsas e porções pra montar o prato</li>
-          <li>Frete grátis acima de R$290</li>
+          <li>Refeições individuais</li>
+          <li>Frete grátis acima de R$ 290 [a confirmar]</li>
           <li>Peça pelo site ou pelo app</li>
         </ul>
         <a class="btn btn--cereja" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Montar meu pedido</a>
@@ -532,15 +531,15 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <section class="section section--sand" id="como-funciona">
     <div class="wrap">
       <div class="center">
-        <span class="eyebrow">4 passos</span>
-        <h2 style="margin-top:8px;">Do freezer pro prato em 4 passos</h2>
+        <span class="eyebrow">5 passos</span>
+        <h2 style="margin-top:8px;">Do freezer pro prato em 5 passos</h2>
       </div>
       <div class="flow">
         <div class="flow-node">
           <div class="flow-circle">01</div>
           <svg class="flow-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2" width="12" height="20" rx="2"/><line x1="11" y1="18" x2="13" y2="18"/></svg>
           <h3>Escolha seus pratos</h3>
-          <p>No site ou no app, em kit ou avulsas</p>
+          <p>No site ou no app</p>
         </div>
         <div class="flow-connector">
           <span class="flow-pill">BLACKNOVEMBER</span>
@@ -550,7 +549,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
           <div class="flow-circle">02</div>
           <svg class="flow-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2H2v10l9.29 9.29a1 1 0 0 0 1.42 0l8.58-8.58a1 1 0 0 0 0-1.42L12 2z"/><circle cx="6.5" cy="6.5" r="1.5" fill="currentColor" stroke="none"/></svg>
           <h3>Use o cupom da Black</h3>
-          <p>BLACKNOVEMBER na 1ª compra</p>
+          <p>BLACKNOVEMBER na 1ª compra, BLACKMONTH se já é cliente</p>
         </div>
         <div class="flow-connector">
           <svg viewBox="0 0 24 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 5h18M14 1l5 4-5 4"/></svg>
@@ -559,7 +558,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
           <div class="flow-circle">03</div>
           <svg class="flow-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
           <h3>Receba em casa</h3>
-          <p>Congeladas, direto pro freezer</p>
+          <p>Chegam congeladas, direto pro freezer</p>
         </div>
         <div class="flow-connector">
           <svg viewBox="0 0 24 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 5h18M14 1l5 4-5 4"/></svg>
@@ -568,7 +567,16 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
           <div class="flow-circle">04</div>
           <svg class="flow-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><rect x="4" y="7" width="12" height="10" rx="1"/><circle cx="19" cy="10" r="1" fill="currentColor" stroke="none"/><line x1="17" y1="14" x2="21" y2="14"/><line x1="17" y1="16" x2="21" y2="16"/></svg>
           <h3>Esquente e pronto</h3>
-          <p>Minutos no micro-ondas</p>
+          <p>Prontas em minutos no micro-ondas</p>
+        </div>
+        <div class="flow-connector">
+          <svg viewBox="0 0 24 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M1 5h18M14 1l5 4-5 4"/></svg>
+        </div>
+        <div class="flow-node">
+          <div class="flow-circle">05</div>
+          <svg class="flow-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+          <h3>Só aproveitar</h3>
+          <p>Refeição pronta para ser consumida</p>
           <span class="flow-banner">Pronto em minutos</span>
         </div>
       </div>
@@ -576,7 +584,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         <video src="assets/passos-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       </div>
       <div class="center" style="margin-top:28px;">
-        <a class="btn btn--cereja" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Começar meu pedido</a>
+        <a class="btn btn--cereja" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Aproveitar a Black</a>
       </div>
     </div>
   </section>
@@ -588,9 +596,9 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         <div class="brand-tagline"><img src="assets/logo.jpg" alt="Liv Up"><h2 style="font-size:28px;">Comer bem nunca foi tão fácil</h2></div>
       </div>
       <div class="why-grid">
-        <div class="why-card"><div class="why-photo"><img src="assets/why-1.jpg" alt="Prato Liv Up com feijão preto, arroz, brócolis, legumes assados e carne moída" loading="lazy"></div><div class="why-body"><h3>Chefs e nutricionistas</h3><p>Refeições completas criadas por quem entende de cozinha e de nutrição.</p></div></div>
+        <div class="why-card"><div class="why-photo"><img src="assets/why-1.jpg" alt="Prato Liv Up com feijão preto, arroz, brócolis, legumes assados e carne moída" loading="lazy"></div><div class="why-body"><h3>Feitas por chefs e nutricionistas</h3><p>Refeições completas criadas por quem entende de cozinha e de nutrição.</p></div></div>
         <div class="why-card"><div class="why-photo"><img src="assets/why-2.jpg" alt="Fusilli ao molho de tomate com camarão e tomate cereja" loading="lazy"></div><div class="why-body"><h3>Ingredientes naturais</h3><p>Comida de verdade, com tempero e textura de prato caseiro.</p></div></div>
-        <div class="why-card"><div class="why-photo"><img src="assets/why-3.jpg" alt="Macarrão oriental com frango, legumes e molho shoyu" loading="lazy"></div><div class="why-body"><h3>Prato pra toda rotina</h3><p>Do dia a dia à linha Performance, pra quem treina, quer leveza ou não come carne.</p></div></div>
+        <div class="why-card"><div class="why-photo"><img src="assets/why-3.jpg" alt="Macarrão oriental com frango, legumes e molho shoyu" loading="lazy"></div><div class="why-body"><h3>Prato pra toda rotina</h3><p>Do dia a dia à linha Performance, com opções pra quem treina, pra quem quer leveza e pra quem não come carne.</p></div></div>
       </div>
     </div>
   </section>
@@ -599,25 +607,18 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <section class="section">
     <div class="wrap">
       <div class="center">
-        <span class="eyebrow">Monte seu prato</span>
-        <h2 style="font-size:28px; margin-top:8px;">Tá com vontade de quê?</h2>
-        <p class="lede" style="margin-top:8px;">Escolha por proteína, objetivo ou culinária.</p>
-      </div>
-      <div class="category-grid">
-        <a class="category-card" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener"><img src="assets/coxa-frango.jpg" alt="Pratos com frango" loading="lazy"><span>Frango</span></a>
-        <a class="category-card" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener"><img src="assets/carne-moida.jpg" alt="Pratos com carne" loading="lazy"><span>Carne</span></a>
-        <a class="category-card" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener"><img src="assets/estrogonofe.jpg" alt="Comida brasileira" loading="lazy"><span>Brasileira</span></a>
-        <a class="category-card" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener"><img src="assets/why-3.jpg" alt="Comida asiática" loading="lazy"><span>Asiática</span></a>
+        <span class="eyebrow">Alcance seu objetivo</span>
+        <h2 style="font-size:28px; margin-top:8px;">Diferentes linhas, diferentes momentos</h2>
+        <p class="lede" style="margin-top:8px;">Escolha a linha que combina com o seu momento.</p>
       </div>
       <div class="chip-groups" id="chipGroups">
-        <div><span class="chip-row-label">Proteína</span><div class="chips">
-          <a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Frango</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Carne</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Peixes e frutos do mar</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Vegetariano</a>
-        </div></div>
-        <div><span class="chip-row-label">Objetivo</span><div class="chips">
-          <a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Baixa caloria</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Pra quem treina</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Low carb</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Sem lactose</a>
-        </div></div>
-        <div><span class="chip-row-label">Culinária</span><div class="chips">
-          <a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Brasileira</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Asiática</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Italiana</a><a class="chip" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Mediterrânea</a>
+        <div><div class="chips">
+          <a class="chip" href="https://www.livup.com.br/marmitas#performance" target="_blank" rel="noopener">Performance · refeições de 430g pra quem treina</a>
+          <a class="chip" href="https://www.livup.com.br/marmitas#gourmet" target="_blank" rel="noopener">Gourmet · receitas especiais, como salmão com risoto de limão siciliano</a>
+          <a class="chip" href="https://www.livup.com.br/marmitas#baixa-caloria" target="_blank" rel="noopener">Baixa caloria · receitas equilibradas pra manter o foco na dieta</a>
+          <a class="chip" href="https://www.livup.com.br/marmitas#vegetarianas" target="_blank" rel="noopener">Vegetariana · o dia a dia sem carne, mais prático e gostoso</a>
+          <a class="chip" href="https://www.livup.com.br/marmitas#turbinadas" target="_blank" rel="noopener">Turbinadas · porções de 370g com mais proteína</a>
+          <a class="chip" href="https://www.livup.com.br/marmitas#dia-a-dia" target="_blank" rel="noopener">Dia a dia · ingredientes naturais, prontas em 5 minutos</a>
         </div></div>
       </div>
     </div>
@@ -660,7 +661,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false" aria-controls="faq-a-4">Posso juntar com outro cupom?<span class="plus" aria-hidden="true">+</span></button>
-          <div class="faq-a" id="faq-a-4"><p>O BLACKMONTH tem uso único por CPF e não é cumulativo com outros cupons.</p></div>
+          <div class="faq-a" id="faq-a-4"><p>O BLACKMONTH tem uso único por CPF e não é cumulativo com outros cupons. Regra do BLACKNOVEMBER a confirmar com a Liv Up.</p></div>
         </div>
         <div class="faq-item">
           <button class="faq-q" aria-expanded="false" aria-controls="faq-a-5">Vocês entregam no meu endereço?<span class="plus" aria-hidden="true">+</span></button>
@@ -703,64 +704,11 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
 </footer>
 
 <div class="sticky-cta">
-  <div class="msg"><span>Obtenha </span><b>50% OFF*</b><span> na sua primeira semana!</span></div>
+  <div class="msg"><b>BLACKNOVEMBER:</b><span> 10% OFF + 15% cashback</span></div>
   <button class="btn btn--cereja" style="padding:10px 18px; font-size:13px;" onclick="document.getElementById('cupons').scrollIntoView({behavior:'smooth'})">Aproveitar</button>
 </div>
 
 <script>
-// CEP: máscara + busca de endereço via ViaCEP (viacep.com.br — gratuita, sem chave).
-const cepInput = document.getElementById('cepInput');
-const cepForm = document.getElementById('cepForm');
-const cepErrorEl = document.getElementById('cepError');
-const cepSubmitBtn = cepForm.querySelector('button[type="submit"]');
-const cepSubmitLabel = cepSubmitBtn.textContent;
-
-cepInput.addEventListener('input', () => {
-  let v = cepInput.value.replace(/\D/g,'').slice(0,8);
-  if(v.length > 5) v = v.slice(0,5) + '-' + v.slice(5);
-  cepInput.value = v;
-  cepErrorEl.textContent = '';
-});
-
-async function lookupCep(cep){
-  const res = await fetch('https://viacep.com.br/ws/' + cep + '/json/');
-  if(!res.ok) throw new Error('network');
-  const data = await res.json();
-  if(data.erro) throw new Error('not_found');
-  return data;
-}
-
-cepForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  const digits = cepInput.value.replace(/\D/g,'');
-  cepErrorEl.style.color = 'var(--cereja)';
-
-  if(digits.length !== 8){
-    cepErrorEl.textContent = 'Digite um CEP válido (8 dígitos).';
-    return;
-  }
-
-  cepSubmitBtn.disabled = true;
-  cepSubmitBtn.textContent = 'Consultando...';
-  cepErrorEl.textContent = '';
-
-  try {
-    const addr = await lookupCep(digits);
-    cepErrorEl.style.color = '#1a7a3c';
-    cepErrorEl.textContent = `Entregamos em ${addr.bairro ? addr.bairro + ', ' : ''}${addr.localidade}/${addr.uf}! Redirecionando para o cardápio…`;
-  } catch (err) {
-    if (err.message === 'not_found') {
-      cepErrorEl.textContent = 'CEP não encontrado. Confira os números e tente de novo.';
-    } else {
-      cepErrorEl.style.color = 'var(--fg-soft)';
-      cepErrorEl.textContent = 'Formato de CEP válido. (Consulta de endereço real via ViaCEP.)';
-    }
-  } finally {
-    cepSubmitBtn.disabled = false;
-    cepSubmitBtn.textContent = cepSubmitLabel;
-  }
-});
-
 // copy coupon
 function copyCode(btn){
   const code = btn.getAttribute('data-code');
@@ -775,13 +723,13 @@ function copyCode(btn){
 // somam-se sobre estes valores; combinação com a oferta 1ª compra do site é pendência
 // a confirmar com a Liv Up, ver briefing de 29/10)
 const kits = [
-  {img:'assets/saudaveis.jpg', tag:'Dia a dia · 300g', name:'Kit 20 marmitas Saudáveis', meta:'20 refeições', old:'R$ 339,80', price:'R$ 299,80', per:'R$ 14,99/refeição'},
-  {img:'assets/baixacaloria.jpg', tag:'Até 350 kcal · 300g', name:'Kit 20 marmitas Baixa Caloria', meta:'20 refeições', old:'R$ 399,80', price:'R$ 359,80', per:'R$ 17,99/refeição'},
-  {img:'assets/massas.jpg', tag:'Comfort food · 300g', name:'Kit 20 marmitas Massas', meta:'20 refeições', old:'R$ 399,80', price:'R$ 359,80', per:'R$ 17,99/refeição'},
-  {img:'assets/performance.jpg', tag:'Treino intenso · 430g', name:'Kit 20 marmitas Performance', meta:'20 refeições', old:'R$ 519,80', price:'R$ 479,80', per:'R$ 23,99/refeição'},
-  {img:'assets/turbinadas.jpg', tag:'Mais proteína · 370g', name:'Kit 20 marmitas Turbinadas', meta:'20 refeições', old:'R$ 449,80', price:'R$ 399,80', per:'R$ 19,99/refeição'},
-  {img:'assets/vegetarianas.jpg', tag:'Sem carne · 300g', name:'Kit 20 marmitas Vegetarianas', meta:'20 refeições', old:'R$ 339,80', price:'R$ 299,80', per:'R$ 14,99/refeição'},
-  {img:'assets/misto.jpg', tag:'O mix da casa', name:'Kit 20 Misto', meta:'20 refeições', old:'', price:'R$ 379,80', per:'R$ 18,99/refeição'},
+  {img:'assets/saudaveis.jpg', name:'Kit 20 marmitas Saudáveis', old:'R$ 489,10', first:'R$ 269,82', firstPer:'R$ 13,49/refeição', firstOff:'45% OFF', client:'R$ 322,81', clientPer:'R$ 16,14/refeição', clientOff:'34% OFF'},
+  {img:'assets/baixacaloria.jpg', name:'Kit 20 marmitas Baixa Caloria', old:'R$ 562,30', first:'R$ 323,82', firstPer:'R$ 16,19/refeição', firstOff:'42% OFF', client:'R$ 379,81', clientPer:'R$ 18,99/refeição', clientOff:'32% OFF'},
+  {img:'assets/massas.jpg', name:'Kit 20 marmitas Massas', old:'R$ 545,44', first:'R$ 323,82', firstPer:'R$ 16,19/refeição', firstOff:'41% OFF', client:'R$ 379,81', clientPer:'R$ 18,99/refeição', clientOff:'30% OFF'},
+  {img:'assets/performance.jpg', name:'Kit 20 marmitas Performance', old:'R$ 722,40', first:'R$ 431,82', firstPer:'R$ 21,59/refeição', firstOff:'40% OFF', client:'R$ 493,81', clientPer:'R$ 24,69/refeição', clientOff:'32% OFF'},
+  {img:'assets/turbinadas.jpg', name:'Kit 20 marmitas Turbinadas', old:'R$ 594,49', first:'R$ 359,82', firstPer:'R$ 17,99/refeição', firstOff:'39% OFF', client:'R$ 427,31', clientPer:'R$ 21,37/refeição', clientOff:'28% OFF'},
+  {img:'assets/vegetarianas.jpg', name:'Kit 20 marmitas Vegetarianas', old:'R$ 479,26', first:'R$ 269,82', firstPer:'R$ 13,49/refeição', firstOff:'44% OFF', client:'R$ 322,81', clientPer:'R$ 16,14/refeição', clientOff:'33% OFF'},
+  {img:'assets/misto.jpg', name:'Kit 20 Misto', old:'R$ 548,21', first:'R$ 341,82', firstPer:'R$ 17,09/refeição', firstOff:'38% OFF', client:'R$ 360,81', clientPer:'R$ 18,04/refeição', clientOff:'34% OFF'},
 ];
 const kitsGrid = document.getElementById('kitsGrid');
 kits.forEach(k=>{
@@ -790,10 +738,11 @@ kits.forEach(k=>{
   card.innerHTML = `
     <div class="kit-photo"><img src="${k.img}" alt="${k.name}" loading="lazy"></div>
     <div class="kit-body">
-      <span class="kit-tag">${k.tag}</span>
+      <span class="kit-tag">20 refeições · 1ª compra ${k.firstOff}</span>
       <span class="kit-name">${k.name}</span>
-      <span class="kit-meta">${k.meta}</span>
-      <span class="kit-price">${k.old ? `<span class="old">${k.old}</span>` : ''}<span class="new">${k.price}</span><span class="per">${k.per}</span></span>
+      <span class="kit-meta"><span class="old">${k.old}</span></span>
+      <span class="kit-price"><span class="new">${k.first}</span><span class="per">${k.firstPer} · cupom BLACKNOVEMBER</span></span>
+      <span class="kit-meta">Já cliente: <b style="color:var(--fg)">${k.client}</b> (${k.clientPer} · ${k.clientOff} · cupom BLACKMONTH)</span>
       <a class="kit-add" href="https://www.livup.com.br/kits" target="_blank" rel="noopener">Adicionar</a>
     </div>`;
   kitsGrid.appendChild(card);
