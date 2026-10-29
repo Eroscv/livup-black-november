@@ -2,10 +2,10 @@
 <meta name="claude:viewport-fit-sides" content="cover">
 <title>Black November Liv Up</title><link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;600&display=swap" rel="stylesheet">
 <style>
-@font-face{font-family:"AmsiCondensedBlack"; src:url("/_blob/19df2ead40f29f2777216dd06a865cd7") format("woff2"); font-weight:900; font-display:swap;}
-@font-face{font-family:"AmsiCondensedBold"; src:url("/_blob/04d12bfa2002e4df8aa1837f9ea7266e") format("woff2"); font-weight:700; font-display:swap;}
-@font-face{font-family:"AmsiNormal"; src:url("/_blob/6900ed0f3884d3bbfbd44f15804ab04a") format("woff2"); font-weight:400; font-display:swap;}
-@font-face{font-family:"AmsiNormalSemibold"; src:url("/_blob/c808c8e56b52d7a44d0d226499171201") format("woff2"); font-weight:600; font-display:swap;}
+@font-face{font-family:"AmsiCondensedBlack"; src:url("assets/fonts/amsiprocondensed-black.woff2") format("woff2"); font-weight:900; font-display:swap;}
+@font-face{font-family:"AmsiCondensedBold"; src:url("assets/fonts/amsiprocondensed-bold.woff2") format("woff2"); font-weight:700; font-display:swap;}
+@font-face{font-family:"AmsiNormal"; src:url("assets/fonts/amsipronormal-regular.woff2") format("woff2"); font-weight:400; font-display:swap;}
+@font-face{font-family:"AmsiNormalSemibold"; src:url("assets/fonts/amsipronormal-semibold.woff2") format("woff2"); font-weight:600; font-display:swap;}
 
 :root{
   --cereja:#E50145;
@@ -342,6 +342,7 @@ a{color:inherit}
   aspect-ratio:auto; max-width:230px; margin-inline:auto; border-radius:28px;
   border:8px solid var(--preto); aspect-ratio:9/16;
 }
+.media--portrait{aspect-ratio:9/16; max-width:340px; width:100%; margin-inline:auto; border-radius:24px;}
 .split h2{font-size:28px; margin-bottom:12px;}
 .split ul{list-style:none; margin:16px 0; padding:0; display:flex; flex-direction:column; gap:10px;}
 .split li{display:flex; gap:10px; font-size:15px;}
@@ -482,7 +483,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <section class="hero">
     <div class="hero-full-grid">
       <div class="hero-visual">
-        <video src="/_blob/ffba079b00a2b4bdd30872b357c35deb" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video src="assets/hero-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
         <div class="tape top">SITE INTEIRO COM DESCONTO •</div>
         <div class="tape bottom">UM MÊS INTEIRO DE OFERTAS •</div>
         <div class="stat-badge sb-1"><b>+90</b> receitas no cardápio</div>
@@ -513,7 +514,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
               </div>
               <div class="kv-sub">Um mês <b>inteiro</b> de <b>ofertas</b></div>
             </div>
-            <img class="kv-logo-badge" src="/_blob/cf5b329e8151eafbf382bab32dca5488" alt="Liv Up">
+            <img class="kv-logo-badge" src="assets/logo.jpg" alt="Liv Up">
           </div>
           <h1>Refeições saudáveis e gostosas com o <span class="hl">melhor preço</span> do ano</h1>
           <p class="sub">Ofertas em todo site e app</p>
@@ -588,7 +589,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
     <div class="strip-top"></div>
     <div class="wrap split">
       <div class="media">
-        <video src="/_blob/76f13d0ec2aeb2fe64bde69e9b482d4a" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video src="assets/processo-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       </div>
       <div>
         <span class="eyebrow">+90 receitas no cardápio</span>
@@ -606,8 +607,8 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <!-- Monte do seu jeito -->
   <section class="section section--lg">
     <div class="wrap split">
-      <div class="media">
-        <video src="/_blob/be3256d6b0935cd12fa4637d87dc2f9e" autoplay muted loop playsinline aria-hidden="true"></video>
+      <div class="media media--portrait">
+        <video src="assets/entrega-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       </div>
       <div>
         <span class="eyebrow">Praticidade para sua saúde</span>
@@ -634,7 +635,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
       
       <!-- Placeholder do vídeo posicionado acima dos passos -->
       <div class="media media--phone flow-video">
-        <video src="/_blob/18a8619134df1cec2895a48691469c34" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video src="assets/passos-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
       </div>
 
       <div class="flow">
@@ -694,12 +695,12 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <section class="section section--lg">
     <div class="wrap">
       <div class="center" style="margin-bottom:28px;">
-        <div class="brand-tagline"><img src="/_blob/cf5b329e8151eafbf382bab32dca5488" alt="Liv Up"><h2 style="font-size:28px;">Comer bem nunca foi tão fácil</h2></div>
+        <div class="brand-tagline"><img src="assets/logo.jpg" alt="Liv Up"><h2 style="font-size:28px;">Comer bem nunca foi tão fácil</h2></div>
       </div>
       <div class="why-grid">
-        <div class="why-card"><div class="why-photo"><img src="/_blob/10ac4721f96856db9313e624ef5117ef" alt="Prato Liv Up com feijão preto, arroz, brócolis, legumes assados e carne moída" loading="lazy"></div><div class="why-body"><h3>Feitas por chefs e nutricionistas</h3><p>Refeições completas criadas por quem entende de cozinha e de nutrição.</p></div></div>
-        <div class="why-card"><div class="why-photo"><img src="/_blob/7a57f0fbe6cb4796f4040652e7a8095f" alt="Fusilli ao molho de tomate com camarão e tomate cereja" loading="lazy"></div><div class="why-body"><h3>Ingredientes naturais</h3><p>Comida de verdade, com tempero e textura de prato caseiro.</p></div></div>
-        <div class="why-card"><div class="why-photo"><img src="/_blob/aa5694fb70952ec554fb7d4a58821faf" alt="Macarrão oriental com frango, legumes e molho shoyu" loading="lazy"></div><div class="why-body"><h3>Prato pra toda rotina</h3><p>Do dia a dia à linha Performance, com opções pra quem treina, pra quem quer leveza e pra quem não come carne.</p></div></div>
+        <div class="why-card"><div class="why-photo"><img src="assets/why-1.jpg" alt="Prato Liv Up com feijão preto, arroz, brócolis, legumes assados e carne moída" loading="lazy"></div><div class="why-body"><h3>Feitas por chefs e nutricionistas</h3><p>Refeições completas criadas por quem entende de cozinha e de nutrição.</p></div></div>
+        <div class="why-card"><div class="why-photo"><img src="assets/why-2.jpg" alt="Fusilli ao molho de tomate com camarão e tomate cereja" loading="lazy"></div><div class="why-body"><h3>Ingredientes naturais</h3><p>Comida de verdade, com tempero e textura de prato caseiro.</p></div></div>
+        <div class="why-card"><div class="why-photo"><img src="assets/why-3.jpg" alt="Macarrão oriental com frango, legumes e molho shoyu" loading="lazy"></div><div class="why-body"><h3>Prato pra toda rotina</h3><p>Do dia a dia à linha Performance, com opções pra quem treina, pra quem quer leveza e pra quem não come carne.</p></div></div>
       </div>
     </div>
   </section>
@@ -824,13 +825,13 @@ function copyCode(btn){
 
 // kits
 const kits = [
-  {img:'/_blob/8e87c1dcb9f367724e30a3acc2956210', name:'Kit 20 marmitas Saudáveis', old:'R$ 489,10', first:'R$ 269,82', firstPer:'R$ 13,49/refeição', firstOff:'45% OFF', client:'R$ 322,81', clientPer:'R$ 16,14/refeição', clientOff:'34% OFF'},
-  {img:'/_blob/a42b8ca00b8c4011270ccac463b142ea', name:'Kit 20 marmitas Baixa Caloria', old:'R$ 562,30', first:'R$ 323,82', firstPer:'R$ 16,19/refeição', firstOff:'42% OFF', client:'R$ 379,81', clientPer:'R$ 18,99/refeição', clientOff:'32% OFF'},
-  {img:'/_blob/0527e26a46efb8785bb1f331e4b0afdc', name:'Kit 20 marmitas Massas', old:'R$ 545,44', first:'R$ 323,82', firstPer:'R$ 16,19/refeição', firstOff:'41% OFF', client:'R$ 379,81', clientPer:'R$ 18,99/refeição', clientOff:'30% OFF'},
-  {img:'/_blob/8c072c7964ce08ca0555671eb2e983eb', name:'Kit 20 marmitas Performance', old:'R$ 722,40', first:'R$ 431,82', firstPer:'R$ 21,59/refeição', firstOff:'40% OFF', client:'R$ 493,81', clientPer:'R$ 24,69/refeição', clientOff:'32% OFF'},
-  {img:'/_blob/5771641daec4ee390a0ba5d3a19ce6f8', name:'Kit 20 marmitas Turbinadas', old:'R$ 594,49', first:'R$ 359,82', firstPer:'R$ 17,99/refeição', firstOff:'39% OFF', client:'R$ 427,31', clientPer:'R$ 21,37/refeição', clientOff:'28% OFF'},
-  {img:'/_blob/4260b43cec170b58836897fc367fae68', name:'Kit 20 marmitas Vegetarianas', old:'R$ 479,26', first:'R$ 269,82', firstPer:'R$ 13,49/refeição', firstOff:'44% OFF', client:'R$ 322,81', clientPer:'R$ 16,14/refeição', clientOff:'33% OFF'},
-  {img:'/_blob/cf47a0bff76ebd9e509a45729cb5f222', name:'Kit 20 Misto', old:'R$ 548,21', first:'R$ 341,82', firstPer:'R$ 17,09/refeição', firstOff:'38% OFF', client:'R$ 360,81', clientPer:'R$ 18,04/refeição', clientOff:'34% OFF'},
+  {img:'assets/saudaveis.jpg', name:'Kit 20 marmitas Saudáveis', old:'R$ 489,10', first:'R$ 269,82', firstPer:'R$ 13,49/refeição', firstOff:'45% OFF', client:'R$ 322,81', clientPer:'R$ 16,14/refeição', clientOff:'34% OFF'},
+  {img:'assets/baixacaloria.jpg', name:'Kit 20 marmitas Baixa Caloria', old:'R$ 562,30', first:'R$ 323,82', firstPer:'R$ 16,19/refeição', firstOff:'42% OFF', client:'R$ 379,81', clientPer:'R$ 18,99/refeição', clientOff:'32% OFF'},
+  {img:'assets/massas.jpg', name:'Kit 20 marmitas Massas', old:'R$ 545,44', first:'R$ 323,82', firstPer:'R$ 16,19/refeição', firstOff:'41% OFF', client:'R$ 379,81', clientPer:'R$ 18,99/refeição', clientOff:'30% OFF'},
+  {img:'assets/performance.jpg', name:'Kit 20 marmitas Performance', old:'R$ 722,40', first:'R$ 431,82', firstPer:'R$ 21,59/refeição', firstOff:'40% OFF', client:'R$ 493,81', clientPer:'R$ 24,69/refeição', clientOff:'32% OFF'},
+  {img:'assets/turbinadas.jpg', name:'Kit 20 marmitas Turbinadas', old:'R$ 594,49', first:'R$ 359,82', firstPer:'R$ 17,99/refeição', firstOff:'39% OFF', client:'R$ 427,31', clientPer:'R$ 21,37/refeição', clientOff:'28% OFF'},
+  {img:'assets/vegetarianas.jpg', name:'Kit 20 marmitas Vegetarianas', old:'R$ 479,26', first:'R$ 269,82', firstPer:'R$ 13,49/refeição', firstOff:'44% OFF', client:'R$ 322,81', clientPer:'R$ 16,14/refeição', clientOff:'33% OFF'},
+  {img:'assets/misto.jpg', name:'Kit 20 Misto', old:'R$ 548,21', first:'R$ 341,82', firstPer:'R$ 17,09/refeição', firstOff:'38% OFF', client:'R$ 360,81', clientPer:'R$ 18,04/refeição', clientOff:'34% OFF'},
 ];
 const kitsGrid = document.getElementById('kitsGrid');
 kits.forEach(k=>{
