@@ -605,7 +605,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   </section>
 
   <!-- Processo -->
-  <section class="section">
+  <section class="section" id="processo">
     <div class="wrap split">
       <div>
         <span class="eyebrow">+90 receitas no cardápio</span>
@@ -877,10 +877,11 @@ kits.forEach(k=>{
   kitsGrid.appendChild(card);
 });
 
-// barra fixa BLACKNOVEMBER: aparece depois de rolar 45% da altura da tela
+// barra fixa BLACKNOVEMBER: aparece a partir da seção "+90 receitas no cardápio"
 (function(){
   const bar = document.querySelector('.sticky-cta');
-  const toggle = () => bar.classList.toggle('is-visible', window.scrollY > window.innerHeight * 0.45);
+  const anchor = document.getElementById('processo');
+  const toggle = () => bar.classList.toggle('is-visible', anchor.getBoundingClientRect().top <= 0);
   window.addEventListener('scroll', toggle, {passive:true});
   window.addEventListener('resize', toggle);
   toggle();
