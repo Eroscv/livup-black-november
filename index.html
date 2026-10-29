@@ -254,11 +254,18 @@ a{color:inherit}
 .kit-body{padding:14px; display:flex; flex-direction:column; gap:6px; flex:1;}
 .kit-tag{font:700 11px var(--font-body-sb); color:var(--cereja); text-transform:uppercase; letter-spacing:.04em;}
 .kit-name{font:700 14px/1.3 var(--font-bold); min-width:0;}
-.kit-meta{font-size:12px; color:var(--fg-soft);}
-.kit-price{margin-top:auto; display:flex; align-items:baseline; gap:8px; flex-wrap:wrap;}
-.kit-price .old{font-size:12px; color:var(--fg-soft); text-decoration:line-through;}
-.kit-price .new{font:700 16px var(--font-display); color:var(--cereja);}
-.kit-price .per{font-size:11px; color:var(--fg-soft);}
+.kit-old{font-size:13px; color:var(--fg-soft);}
+.kit-old s{text-decoration:line-through; text-decoration-thickness:1.5px;}
+.kit-offer{display:flex; flex-direction:column; gap:2px; padding:10px 12px; border-radius:10px; background:var(--surface-alt); border:1px solid var(--border);}
+.kit-offer--first{background:#fff; border-color:var(--cereja); box-shadow:inset 0 0 0 1px var(--cereja);}
+.kit-offer-label{font:600 11px var(--font-body-sb); color:var(--fg-soft); letter-spacing:.02em;}
+.kit-offer-label b{color:var(--fg); font-family:var(--font-bold); letter-spacing:.03em;}
+.kit-offer-row{display:flex; align-items:center; gap:8px; flex-wrap:wrap;}
+.kit-offer-price{font:900 24px/1.1 var(--font-display); color:var(--cereja);}
+.kit-offer-price--alt{color:var(--fg); font-size:20px;}
+.kit-off{background:var(--cereja); color:#fff; font:700 11px var(--font-bold); letter-spacing:.04em; padding:3px 8px; border-radius:999px; white-space:nowrap;}
+.kit-off--alt{background:var(--preto);}
+.kit-per{font-size:11px; color:var(--fg-soft);}
 .kit-add{
   margin-top:8px; border:none; background:var(--preto); color:#fff; border-radius:999px;
   font:700 12px var(--font-bold); padding:9px 0; cursor:pointer; text-align:center; text-decoration:none;
@@ -846,11 +853,19 @@ kits.forEach(k=>{
   card.innerHTML = `
     <div class="kit-photo"><img src="${k.img}" alt="${k.name}" loading="lazy"></div>
     <div class="kit-body">
-      <span class="kit-tag">20 refeições · 1ª compra ${k.firstOff}</span>
+      <span class="kit-tag">20 refeições</span>
       <span class="kit-name">${k.name}</span>
-      <span class="kit-meta"><span class="old">${k.old}</span></span>
-      <span class="kit-price"><span class="new">${k.first}</span><span class="per">${k.firstPer} · cupom BLACKNOVEMBER</span></span>
-      <span class="kit-meta">Já cliente: <b style="color:var(--fg)">${k.client}</b> (${k.clientPer} · ${k.clientOff} · cupom BLACKMONTH)</span>
+      <span class="kit-old">De <s>${k.old}</s></span>
+      <span class="kit-offer kit-offer--first">
+        <span class="kit-offer-label">1ª compra + cupom <b>BLACKNOVEMBER</b></span>
+        <span class="kit-offer-row"><span class="kit-offer-price">${k.first}</span><span class="kit-off">${k.firstOff}</span></span>
+        <span class="kit-per">${k.firstPer}</span>
+      </span>
+      <span class="kit-offer">
+        <span class="kit-offer-label">Já é cliente + cupom <b>BLACKMONTH</b></span>
+        <span class="kit-offer-row"><span class="kit-offer-price kit-offer-price--alt">${k.client}</span><span class="kit-off kit-off--alt">${k.clientOff}</span></span>
+        <span class="kit-per">${k.clientPer}</span>
+      </span>
       <a class="kit-add" href="https://www.livup.com.br/kits" target="_blank" rel="noopener">Adicionar</a>
     </div>`;
   kitsGrid.appendChild(card);
