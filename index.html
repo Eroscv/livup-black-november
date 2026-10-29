@@ -361,21 +361,21 @@ a{color:inherit}
 .why-body p{font-size:13px; color:var(--fg-soft);}
 
 /* flowchart: como funciona */
-.flow{display:flex; align-items:flex-start; margin-top:36px;}
-.flow-node{flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; gap:6px; padding:0 6px; min-width:0;}
-.flow-circle{width:38px; height:38px; border-radius:999px; background:var(--cereja); color:#fff; display:flex; align-items:center; justify-content:center; font:900 15px var(--font-display);}
-.flow-ico{width:26px; height:26px; color:var(--preto); margin-top:4px;}
-.flow-node h3{font-size:13px; margin-top:4px; font-family:var(--font-bold); text-transform:none;}
-.flow-node p{font-size:11.5px; color:var(--fg-soft); margin-top:2px;}
-.flow-banner{margin-top:10px; background:var(--preto); color:#fff; font:700 10px var(--font-bold); text-transform:uppercase; letter-spacing:.04em; padding:6px 12px; border-radius:999px; white-space:nowrap;}
-.flow-connector{flex:0 0 44px; display:flex; align-items:flex-start; justify-content:center; padding-top:19px; position:relative;}
-.flow-connector svg{width:34px; height:14px; color:var(--cereja); display:block;}
-.flow-pill{position:absolute; top:-14px; left:50%; transform:translateX(-50%); background:var(--cereja); color:#fff; font:700 9px var(--font-bold); padding:4px 8px; border-radius:999px; white-space:nowrap;}
-@media (max-width:760px){
+.flow{display:flex; align-items:flex-start; margin-top:44px;}
+.flow-node{flex:1; display:flex; flex-direction:column; align-items:center; text-align:center; gap:8px; padding:0 8px; min-width:0;}
+.flow-circle{width:56px; height:56px; border-radius:999px; background:var(--cereja); color:#fff; display:flex; align-items:center; justify-content:center; font:900 22px var(--font-display);}
+.flow-ico{width:38px; height:38px; color:var(--preto); margin-top:6px;}
+.flow-node h3{font-size:19px; margin-top:6px; font-family:var(--font-bold); text-transform:none;}
+.flow-node p{font-size:15px; line-height:1.4; color:var(--fg-soft); margin-top:2px;}
+.flow-banner{margin-top:10px; background:var(--preto); color:#fff; font:700 13px var(--font-bold); text-transform:uppercase; letter-spacing:.04em; padding:8px 16px; border-radius:999px; white-space:nowrap;}
+.flow-connector{flex:0 0 64px; display:flex; align-items:flex-start; justify-content:center; padding-top:20px; position:relative;}
+.flow-connector svg{width:48px; height:20px; color:var(--cereja); display:block;}
+.flow-pill{position:absolute; top:-22px; left:50%; transform:translateX(-50%); background:var(--cereja); color:#fff; font:700 11px var(--font-bold); padding:5px 10px; border-radius:999px; white-space:nowrap;}
+@media (max-width:1000px){
   .flow{flex-direction:column; align-items:stretch; gap:0;}
   .flow-node{padding:10px 0;}
   .flow-connector{flex-direction:column; width:auto; padding:8px 0; align-items:center; gap:6px;}
-  .flow-connector svg{transform:rotate(90deg); width:14px; height:34px;}
+  .flow-connector svg{transform:rotate(90deg); width:20px; height:48px;}
   .flow-pill{position:static; transform:none; order:-1;}
 }
 .flow-video{max-width:220px; margin:0 auto 28px auto;}
