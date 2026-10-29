@@ -218,29 +218,32 @@ a{color:inherit}
 .section--black .lede{color:rgba(255,255,255,.72);}
 .freeship-note{text-align:center; font:700 12px var(--font-body-sb); letter-spacing:.06em; text-transform:uppercase; color:var(--fg-soft); margin-bottom:18px;}
 
+.kits-carousel{position:relative;}
 .kits-grid{
-  display:grid; 
-  grid-template-columns:repeat(4,1fr); 
+  display:flex;
+  overflow-x:auto;
+  scroll-snap-type:x mandatory;
+  scroll-behavior:smooth;
   gap:16px;
+  padding:4px 4px 14px;
+  scrollbar-width:none;
 }
-@media (max-width:900px){ 
-  .kits-grid{
-    display:flex;
-    overflow-x:auto;
-    scroll-snap-type:x mandatory;
-    gap:14px;
-    padding-bottom:12px;
-    padding-inline:4px;
-    scrollbar-width:none;
-  }
-  .kits-grid::-webkit-scrollbar{
-    display:none;
-  }
-  .kits-grid .kit-card{
-    flex:0 0 270px;
-    scroll-snap-align:start;
-  }
+.kits-grid::-webkit-scrollbar{display:none;}
+.kits-grid .kit-card{flex:0 0 280px; scroll-snap-align:start;}
+.kits-nav{
+  position:absolute; top:38%; transform:translateY(-50%); z-index:3;
+  width:44px; height:44px; border-radius:999px; border:none; cursor:pointer;
+  background:#fff; color:var(--preto); box-shadow:0 6px 18px rgba(0,0,0,.2);
+  display:flex; align-items:center; justify-content:center;
+  transition:opacity .2s ease, background .2s ease;
 }
+.kits-nav:hover{background:var(--cereja); color:#fff;}
+.kits-nav:focus-visible{outline:2px solid var(--cereja); outline-offset:2px;}
+.kits-nav[disabled]{opacity:0; pointer-events:none;}
+.kits-nav svg{width:20px; height:20px;}
+.kits-nav.prev{left:-12px;}
+.kits-nav.next{right:-12px;}
+@media (max-width:600px){ .kits-nav{display:none;} }
 
 .kit-card{
   background:var(--surface); border-radius:12px; border:1px solid var(--border); overflow:hidden;
@@ -577,7 +580,11 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         <p style="margin-top:10px; font:700 11px var(--font-body-sb); letter-spacing:.04em; text-transform:uppercase; color:var(--fg-soft);">1ª compra + cupom BLACKNOVEMBER · ou já cliente + cupom BLACKMONTH — combinação com oferta de 1ª compra do site a confirmar com a Liv Up</p>
       </div>
       <p class="freeship-note">Frete grátis acima de R$ 290 [a confirmar]</p>
-      <div class="kits-grid" id="kitsGrid"></div>
+      <div class="kits-carousel">
+        <button class="kits-nav prev" id="kitsPrev" aria-label="Kits anteriores" disabled><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg></button>
+        <div class="kits-grid" id="kitsGrid"></div>
+        <button class="kits-nav next" id="kitsNext" aria-label="Próximos kits"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg></button>
+      </div>
       <div class="center" style="margin-top:28px;">
         <a class="btn btn--outline" href="https://www.livup.com.br/kits" target="_blank" rel="noopener">Ver todos os kits</a>
       </div>
@@ -848,6 +855,23 @@ kits.forEach(k=>{
     </div>`;
   kitsGrid.appendChild(card);
 });
+
+// carrossel de kits: setas (desktop) + scroll/swipe nativo
+(function(){
+  const track = document.getElementById('kitsGrid');
+  const prev = document.getElementById('kitsPrev');
+  const next = document.getElementById('kitsNext');
+  const step = () => Math.max(track.clientWidth * 0.8, 280);
+  const update = () => {
+    prev.disabled = track.scrollLeft <= 4;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 4;
+  };
+  prev.addEventListener('click', () => track.scrollBy({left:-step()}));
+  next.addEventListener('click', () => track.scrollBy({left:step()}));
+  track.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  update();
+})();
 
 // testimonials
 const testis = [
