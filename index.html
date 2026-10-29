@@ -103,11 +103,13 @@ a{color:inherit}
 }
 .hero-content-wrapper{
   display:flex;
-  justify-content:flex-end;
+  justify-content:flex-start;
+  order:1;
   padding-block:56px;
-  padding-left:max(16px, env(safe-area-inset-left));
+  padding-left:max(16px, calc((100vw - 1240px) / 2 + 16px));
   padding-right:32px;
 }
+.hero-full-grid > .hero-visual{order:2;}
 .hero-content{
   max-width:580px;
   width:100%;
