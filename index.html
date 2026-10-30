@@ -1,6 +1,8 @@
 <!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <meta name="claude:viewport-fit-sides" content="cover">
-<title>Black November Liv Up</title><link href="https://fonts.googleapis.com/css2?family=Hind+Madurai:wght@400;600&display=swap" rel="stylesheet">
+<link rel="preload" href="assets/fonts/amsiprocondensed-black.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/amsipronormal-regular.woff2" as="font" type="font/woff2" crossorigin>
+<title>Black November Liv Up</title>
 <style>
 @font-face{font-family:"AmsiCondensedBlack"; src:url("assets/fonts/amsiprocondensed-black.woff2") format("woff2"); font-weight:900; font-display:swap;}
 @font-face{font-family:"AmsiCondensedBold"; src:url("assets/fonts/amsiprocondensed-bold.woff2") format("woff2"); font-weight:700; font-display:swap;}
@@ -501,7 +503,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
       <div class="hero-content-wrapper">
         <div class="hero-content">
           <picture class="kv-logo">
-            <img src="assets/kv-logo.png" alt="Black November Liv Up: um mês inteiro de ofertas" width="696" height="166">
+            <img src="assets/kv-logo.png" fetchpriority="high" decoding="async" alt="Black November Liv Up: um mês inteiro de ofertas" width="696" height="166">
           </picture>
           <h1>Refeições saudáveis e gostosas com o <span class="hl">melhor preço</span> do ano</h1>
           <p class="sub">Ofertas em todo site e app</p>
@@ -512,7 +514,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         </div>
       </div>
       <div class="hero-visual">
-        <video src="assets/hero-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video src="assets/hero-loop.mp4" poster="assets/hero-poster.jpg" preload="auto" autoplay muted loop playsinline aria-hidden="true"></video>
         
         <!-- Nova faixa interna na cor cereja do botão -->
         <div class="hero-internal-benefits">
@@ -610,7 +612,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
         <a class="btn btn--outline" style="margin-top:20px;" href="https://www.livup.com.br/cardapio" target="_blank" rel="noopener">Quero provar na Black</a>
       </div>
       <div class="media">
-        <video src="assets/processo-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video data-src="assets/processo-loop.mp4" poster="assets/processo-poster.jpg" preload="none" muted loop playsinline aria-hidden="true"></video>
       </div>
     </div>
   </section>
@@ -619,7 +621,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
   <section class="section section--lg">
     <div class="wrap split">
       <div class="media">
-        <video src="assets/monte-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video data-src="assets/monte-loop.mp4" poster="assets/monte-poster.jpg" preload="none" muted loop playsinline aria-hidden="true"></video>
       </div>
       <div>
         <span class="eyebrow">Praticidade para sua saúde</span>
@@ -646,7 +648,7 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
       
       <!-- Placeholder do vídeo posicionado acima dos passos -->
       <div class="media media--phone flow-video">
-        <video src="assets/passos-loop.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+        <video data-src="assets/passos-loop.mp4" poster="assets/passos-poster.jpg" preload="none" muted loop playsinline aria-hidden="true"></video>
       </div>
 
       <div class="flow">
@@ -910,6 +912,20 @@ kits.forEach(k=>{
   track.addEventListener('scroll', update, {passive:true});
   window.addEventListener('resize', update);
   update();
+})();
+
+// vídeos abaixo da dobra: só baixam e tocam quando chegam perto da tela
+(function(){
+  const vids = document.querySelectorAll('video[data-src]');
+  if(!('IntersectionObserver' in window)){ vids.forEach(v=>{ v.src=v.dataset.src; v.autoplay=true; v.play().catch(()=>{}); }); return; }
+  const io = new IntersectionObserver(es=>es.forEach(e=>{
+    const v = e.target;
+    if(e.isIntersecting){
+      if(!v.src){ v.src = v.dataset.src; }
+      v.play().catch(()=>{});
+    } else { v.pause(); }
+  }), {rootMargin:'300px 0px'});
+  vids.forEach(v=>io.observe(v));
 })();
 
 // testimonials
