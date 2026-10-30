@@ -125,14 +125,6 @@ a{color:inherit}
 }
 
 /* KV lettering */
-.kv-lettering{display:flex; align-items:center; gap:12px; margin-bottom:22px; flex-wrap:wrap;}
-.kv-lettering-main{display:flex; flex-direction:column;}
-.kv-lettering-row{display:flex; align-items:center; gap:10px; flex-wrap:wrap;}
-.kv-black{font-family:var(--font-display); font-size:clamp(26px,4vw,38px); line-height:1; letter-spacing:.01em;}
-.kv-november{font-family:var(--font-body-sb); font-weight:700; font-size:clamp(20px,3vw,30px); letter-spacing:.01em;}
-.kv-sub{font:700 12px var(--font-body-sb); letter-spacing:.08em; text-transform:uppercase; margin-top:4px; color:var(--fg-soft);}
-.kv-sub b{color:var(--fg); font-family:var(--font-bold);}
-.kv-logo-badge{width:40px; height:40px; border-radius:11px; display:block; flex:0 0 auto;}
 
 .hero h1{font-size:clamp(34px,5vw,56px); line-height:1.02;}
 .hero h1 .hl{color:var(--cereja)}
@@ -162,7 +154,7 @@ a{color:inherit}
 .hero-internal-benefits{
   position:relative;
   z-index:3;
-  background:var(--cereja);
+  background:var(--preto);
   color:#fff;
   border-top:1px solid rgba(255,255,255,0.15);
   display:grid;
@@ -172,6 +164,8 @@ a{color:inherit}
   text-align:center;
   width:100%;
 }
+.kv-logo{display:block; margin-bottom:20px;}
+.kv-logo img{display:block; width:100%; max-width:420px; height:auto;}
 .hero-internal-item{
   display:flex;
   flex-direction:column;
@@ -413,14 +407,14 @@ a{color:inherit}
 }
 .chip-groups{display:flex; flex-direction:column; gap:18px; margin-top:24px;}
 .chip-row-label{font:700 11px var(--font-body-sb); letter-spacing:.08em; text-transform:uppercase; color:var(--fg-soft); margin-bottom:8px; display:block;}
-.chips{display:flex; flex-wrap:wrap; gap:10px;}
+.chips{display:flex; flex-direction:column; gap:12px; max-width:760px; margin-inline:auto;}
 .chip{
   display:inline-flex; align-items:center; gap:8px; background:var(--surface);
   border:1px solid var(--border); border-radius:999px; padding:8px 16px; font-size:14px; font-family:var(--font-body);
   color:var(--fg); cursor:pointer; text-decoration:none; min-height:44px; box-sizing:border-box;
 }
-.chip{gap:12px; font-size:15px; padding:10px 20px 10px 14px;}
-.chip-ico{flex:0 0 28px; width:28px; height:28px; padding:5px; border-radius:999px; background:var(--cereja); color:#fff; box-sizing:border-box;}
+.chip{display:flex; gap:16px; font-size:17px; line-height:1.35; padding:18px 28px 18px 20px; min-height:72px; border-width:1.5px; border-radius:20px;}
+.chip-ico{flex:0 0 40px; width:40px; height:40px; padding:9px; border-radius:999px; background:var(--cereja); color:#fff; box-sizing:border-box;}
 .chip b{font-family:var(--font-bold); font-weight:700;}
 .chip:hover .chip-ico{background:var(--preto);}
 .chip:focus-visible{outline:2px solid var(--cereja); outline-offset:2px;}
@@ -506,15 +500,10 @@ footer .legal-foot{margin-top:36px; font-size:12px; color:var(--fg-soft); text-a
     <div class="hero-full-grid">
       <div class="hero-content-wrapper">
         <div class="hero-content">
-          <div class="kv-lettering">
-            <div class="kv-lettering-main">
-              <div class="kv-lettering-row">
-                <span class="kv-black">BLACK</span><span class="kv-november">NOVEMBER</span>
-              </div>
-              <div class="kv-sub">Um mês <b>inteiro</b> de <b>ofertas</b></div>
-            </div>
-            <img class="kv-logo-badge" src="assets/logo.jpg" alt="Liv Up">
-          </div>
+          <picture class="kv-logo">
+            <source media="(max-width:860px)" srcset="assets/kv-logo-mobile.png">
+            <img src="assets/kv-logo.png" alt="Black November Liv Up: um mês inteiro de ofertas" width="1120" height="320">
+          </picture>
           <h1>Refeições saudáveis e gostosas com o <span class="hl">melhor preço</span> do ano</h1>
           <p class="sub">Ofertas em todo site e app</p>
           <p class="desc">Marmitas criadas por chefs e nutricionistas, feitas com ingredientes naturais e prontas em minutos.</p>
